@@ -5,16 +5,17 @@ import { Button, Text, Input } from '@rneui/themed';
 import { storage } from './src/storage/Storage';
 
 const Cadastro = ({ navigation }) => {
-const [nome, setNome] = useState('');
-const [email, setEmail] = useState('');
-const [telefone, setTelefone] = useState('');
-const [senha, setSenha] = useState('');
-const [erros, setErros] = useState({
-nome: '',
-email: '',
-telefone: '',
-senha: '',
-});
+  const [nome, setNome] = useState('');
+  const [email, setEmail] = useState('');
+  const [telefone, setTelefone] = useState('');
+  const [senha, setSenha] = useState('');
+  
+  const [erros, setErros] = useState({
+    nome: '',
+    email: '',
+    telefone: '',
+    senha: '',
+  });
 const validarCampos = () => {
 let errosTemp = {};
 if (!nome) {
@@ -54,49 +55,69 @@ console.log('Dados salvos no MMKV isolado com sucesso!');
 navigation.navigate('Confirmacao', { usuario: { id: dados.id } });
 }
 };
-return (
-<ScrollView>
-<View style={styles.formContainer}>
-{!!erros.nome && <Text style={styles.erro}>{erros.nome}</Text>}
-<Text style={styles.label}>Nome:</Text>
-<Input style={styles.input} value={nome} onChangeText={setNome}
-placeholder="Digite seu nome" maxLength={100} />
-{!!erros.email && <Text style={styles.erro}>{erros.email}</Text>}
-<Text style={styles.label}>Email:</Text>
-<Input style={styles.input} value={email} onChangeText={setEmail}
-placeholder="Digite seu email" maxLength={100} keyboardType="email-address"
-autoCapitalize="none" />
-{!!erros.telefone && <Text style={styles.erro}>{erros.telefone}</Text>}
-<Text style={styles.label}>Telefone:</Text>
-<Input style={styles.input} value={telefone} onChangeText={setTelefone}
-placeholder="Digite seu telefone" maxLength={11} keyboardType="numeric" />
-{!!erros.senha && <Text style={styles.erro}>{erros.senha}</Text>}
-<Text style={styles.label}>Senha:</Text>
-<Input style={styles.input} value={senha} onChangeText={setSenha}
-placeholder="Digite sua senha" maxLength={1000} secureTextEntry={true} />
-<Button title="Salvar" onPress={handleSalvar} />
-</View>
-</ScrollView>
-);
+    return (
+    <ScrollView contentContainerStyle={styles.scrollContainer}>
+      <View style={styles.formContainer}>
+        
+        <Input
+          label="Nome"
+          value={nome}
+          onChangeText={setNome}
+          placeholder="Digite seu nome"
+          maxLength={100}
+          errorMessage={erros.nome}
+        />
+
+        <Input
+          label="Email"
+          value={email}
+          onChangeText={setEmail}
+          placeholder="Digite seu email"
+          maxLength={100}
+          keyboardType="email-address"
+          autoCapitalize="none"
+          errorMessage={erros.email}
+        />
+
+        <Input
+          label="Telefone"
+          value={telefone}
+          onChangeText={setTelefone}
+          placeholder="Digite seu telefone"
+          maxLength={11}
+          keyboardType="numeric"
+          errorMessage={erros.telefone}
+        />
+
+        <Input
+          label="Senha"
+          value={senha}
+          onChangeText={setSenha}
+          placeholder="Digite sua senha"
+          maxLength={1000}
+          secureTextEntry={true}
+          errorMessage={erros.senha}
+        />
+
+        <Button title="Salvar" onPress={handleSalvar} containerStyle={styles.buttonContainer} />
+      </View>
+    </ScrollView>
+  );
 };
 
 const styles = StyleSheet.create({
-formContainer: {
-flex: 1,
-padding: 20,
-paddingTop: 30,
-},
-input: {
-borderWidth: 1,
-borderColor: '#ccc',
-borderRadius: 5,
-padding: 10,
-marginBottom: 10,
-},
-erro: {
-color: 'red',
-marginBottom: 5,
-},
+  scrollContainer: {
+    flexGrow: 1,
+  },
+  formContainer: {
+    flex: 1,
+    padding: 20,
+    paddingTop: 30,
+     backgroundColor: '#f5f6fa',
+  },
+  buttonContainer: {
+    marginTop: 20,
+  },
 });
 
 export default Cadastro;

@@ -32,23 +32,23 @@ const Confirmacao = ({ route, navigation }) => {
       {dadosSalvos ? (
         <>
           <Text style={styles.text}>
-            <Text style={styles.label}>ID:</Text {dadosSalvos.id}
+            <Text style={styles.label}>ID:</Text> {dadosSalvos.id}
           </Text>
           <Text style={styles.text}>
-            <Text style={styles.label}>Nome:</Text {dadosSalvos.nome}
+            <Text style={styles.label}>Nome:</Text> {dadosSalvos.nome}
           </Text>
           <Text style={styles.text}>
-            <Text style={styles.label}>Email:</Text {dadosSalvos.email}
+            <Text style={styles.label}>Email:</Text> {dadosSalvos.email}
           </Text>
           <Text style={styles.text}>
-            <Text style={styles.label}>Telefone:</Text {dadosSalvos.telefone}
+            <Text style={styles.label}>Telefone:</Text> {dadosSalvos.telefone}
           </Text>
 
           <Button
             title=" Incluir novamente"
             color="blue"
             onPress={IncluirNovamente}
-            containerStyle={styles.buttonContainer}
+            containerStyle={styles.button}
             icon={{
               name: 'user-plus',
               type: 'font-awesome',
@@ -66,29 +66,30 @@ const Confirmacao = ({ route, navigation }) => {
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    padding: 20,
-  },
-  title: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    marginBottom: 30,
-    color: '#333',
-  },
-  text: {
-    fontSize: 16,
-    marginBottom: 15,
-  },
-  label: {
-    fontWeight: 'bold',
-    color: '#555',
-  },
-  buttonContainer: {
-    marginTop: 30,
-    marginBottom: 10,
-  },
+    container: {
+        flex: 1,
+        backgroundColor: '#f5f6fa',
+        padding: 20,
+        paddingTop: 30,
+    },
+    title: {
+        fontSize: 24,
+        fontWeight: 'bold',
+        marginBottom: 30,
+        color: '#333'
+    },
+    text: {
+        fontSize: 16,
+        marginBottom: 15,
+    },
+    label: {
+        fontWeight: 'bold',
+        color: '#555',
+    },
+    button: {
+        marginTop: 20,
+        marginBottom: 10,
+    },
 });
 
 export default Confirmacao;
