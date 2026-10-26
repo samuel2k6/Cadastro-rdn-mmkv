@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { View, StyleSheet } from 'react-native';
-import { Button, Text, Icon } from '@rneui/themed'; // Adicionado o import do Icon se precisar usar fora do botão
+import { Button, Text, Icon } from '@rneui/themed';
 import { storage } from './src/storage/storage';
 
 const Confirmacao = ({ route, navigation }) => {
@@ -32,23 +32,23 @@ const Confirmacao = ({ route, navigation }) => {
       {dadosSalvos ? (
         <>
           <Text style={styles.text}>
-            <Text style={styles.label}>ID:</Text> {dadosSalvos.id}
+            <Text style={styles.label}>ID:</Text {dadosSalvos.id}
           </Text>
           <Text style={styles.text}>
-            <Text style={styles.label}>Nome:</Text> {dadosSalvos.nome}
+            <Text style={styles.label}>Nome:</Text {dadosSalvos.nome}
           </Text>
           <Text style={styles.text}>
-            <Text style={styles.label}>Email:</Text> {dadosSalvos.email}
+            <Text style={styles.label}>Email:</Text {dadosSalvos.email}
           </Text>
           <Text style={styles.text}>
-            <Text style={styles.label}>Telefone:</Text> {dadosSalvos.telefone}
+            <Text style={styles.label}>Telefone:</Text {dadosSalvos.telefone}
           </Text>
 
-          <Button 
-            title=" Incluir novamente" 
-            color="blue" 
-            onPress={IncluirNovamente} 
-            containerStyle={styles.buttonContainer)
+          <Button
+            title=" Incluir novamente"
+            color="blue"
+            onPress={IncluirNovamente}
+            containerStyle={styles.buttonContainer}
             icon={{
               name: 'user-plus',
               type: 'font-awesome',
