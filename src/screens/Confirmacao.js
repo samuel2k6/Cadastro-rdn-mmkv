@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { View, StyleSheet } from 'react-native';
-import { Button, Text, Icon } from '@rneui/themed';
+import { Button, Text } from '@rneui/themed';
 import { storage } from './src/storage/storage';
 
 const Confirmacao = ({ route, navigation }) => {
@@ -32,16 +32,23 @@ const Confirmacao = ({ route, navigation }) => {
       {dadosSalvos ? (
         <>
           <Text style={styles.text}>
-            <Text style={styles.label}>ID:</Text {dadosSalvos.id}
+            <Text style={styles.label}>ID: </Text>
+            {dadosSalvos.id}
           </Text>
+
           <Text style={styles.text}>
-            <Text style={styles.label}>Nome:</Text {dadosSalvos.nome}
+            <Text style={styles.label}>Nome: </Text>
+            {dadosSalvos.nome}
           </Text>
+
           <Text style={styles.text}>
-            <Text style={styles.label}>Email:</Text {dadosSalvos.email}
+            <Text style={styles.label}>Email: </Text>
+            {dadosSalvos.email}
           </Text>
+
           <Text style={styles.text}>
-            <Text style={styles.label}>Telefone:</Text {dadosSalvos.telefone}
+            <Text style={styles.label}>Telefone: </Text>
+            {dadosSalvos.telefone}
           </Text>
 
           <Button
@@ -92,3 +99,4 @@ const styles = StyleSheet.create({
 });
 
 export default Confirmacao;
+
